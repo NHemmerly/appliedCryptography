@@ -3,7 +3,7 @@
 
 int main(int argc, char *argv[])
 {
-    FILE *fi, *fi2;
+    FILE *fi, *fi2, *fo;
     int c;
     int d;
     long offset = strtol(argv[1], NULL, 10);
@@ -13,20 +13,24 @@ int main(int argc, char *argv[])
 
     if ((fi = fopen(argv[2], "rb")) != NULL) {
         if ((fi2 = fopen(argv[3], "rb")) != NULL) {
-            fseek(fi2, offset, SEEK_SET);
-            while ((c = getc(fi)) != EOF) 
+            if ((fo = fopen(argv[4], "wb")) != NULL)
             {
-                d = getc(fi2);
-                /*if (d != EOF) {
-                    fseek(fi2, 1, SEEK_CUR);
-                } else{
-                    fseek(fi2, 0, SEEK_SET);
-                }*/
-                c ^= d;
-                if (c == 0) {
-                    sameByte++;
+                fseek(fi2, offset, SEEK_SET);
+                while ((c = getc(fi)) != EOF) 
+                {
+                    d = getc(fi2);
+                    if (d == EOF) {
+                        fseek(fi2, 0, SEEK_SET);
+                    } 
+                    c ^= d;
+                    if (c == 0) {
+                        sameByte++;
+                    }
+                    byteLength++;
+                    putc(c, fo);
+
                 }
-                byteLength++;
+                fclose(fo);
             }
             fclose(fi2);
         }

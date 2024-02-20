@@ -1,1 +1,5 @@
-hello this is sample plaintext to be encrypted and analyzed
+hello this is sample plaintext to be encrypted and analyzed. I will now create more words and letters for this text to be properly analyzed by my 
+program. Having additional letters to sample from will allow the encrypted information to be more adequately compared to english as letter frequencies 
+will be more prevalent in a larger piece of text. Wow I really am just blabbing on now, well why don't you get to it? how long of a piece of text do 
+I need to make in order to get the proper letter frequency? are there really enough E's? Who knows, but we will probably find out soon. Continue writing 
+kneel!
