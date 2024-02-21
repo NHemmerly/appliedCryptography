@@ -21,11 +21,12 @@ def toBinary(string):
     for i in l:
         m.append(str(int(bin(i)[2:])))
     for seg in m:
-        while len(seg) < 8:
+        seg = "0" + seg
+        if len(seg) == 7:
             seg = "0" + seg
-            newm.append(seg)
+        newm.append(seg)
 
-    return ''.join(newm)
+    return ' '.join(newm)
 
 def openFiles(filename):
     with open(filename, 'r') as f:
