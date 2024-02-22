@@ -2,10 +2,10 @@ import sys
 import math
 
 def findHammingDistance(string1, string2):
-    string1 = toBinary(string1)
-    string2 = toBinary(string2)
-    print(string1)
-    print(string2)
+    #string1 = openFiles(string1)
+    #string2 = openFiles(string2)
+    #string1 = toBinary(string1)
+    #string2 = toBinary(string2)
     ham = 0
     for c in range(0, len(string1)):
         if c <= (len(string1) - 1) and c <= (len(string2) - 1):
@@ -32,7 +32,3 @@ def openFiles(filename):
     with open(filename, 'r') as f:
         text = f.read()
         return text
-
-newString = openFiles(sys.argv[1])
-newString2 = openFiles(sys.argv[2])
-print(findHammingDistance(newString, newString2))
